@@ -1,0 +1,1 @@
+{"model_name": "<img src=x onerror=alert(1)><script>alert(1)</script>", "results": {"=SUM(1,1)": {"acc,none": "<img src=x onerror=alert(1)><script>alert(1)</script>", "acc,strict-match": true, "acc_stderr,none": null}}}

@@ -1,0 +1,11 @@
+{
+  "synthetic_notice": "合成数据 — 元数据刻意缺失",
+  "model_name": "SYNTHETIC / metadata-unknown",
+  "results": {
+    "synthetic_qa": {
+      "acc,none": 0.55,
+      "acc_stderr,none": null,
+      "acc,strict-match": 0.46
+    }
+  }
+}

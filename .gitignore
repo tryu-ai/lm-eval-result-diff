@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+node_modules/
+*.log
+.env
+.env.*
+.internal/
+.delivery-metadata/
+*.zip

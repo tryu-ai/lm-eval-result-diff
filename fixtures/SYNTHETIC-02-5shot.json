@@ -1,0 +1,187 @@
+{
+  "synthetic_notice": "合成数据 — 非真实模型成绩",
+  "model_name": "SYNTHETIC / model-B",
+  "model_source": "synthetic",
+  "config": {
+    "model": "synthetic-local",
+    "model_args": "SYNTHETIC_SECRET_MUST_NOT_EXPORT",
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234,
+    "limit": null,
+    "model_dtype": "float32",
+    "model_revision": "synthetic-r1",
+    "model_sha": "synthetic-sha"
+  },
+  "git_hash": "SYNTHETIC-harness-commit",
+  "lm_eval_version": "SYNTHETIC-0.4.x",
+  "transformers_version": "SYNTHETIC-4.x",
+  "chat_template": null,
+  "chat_template_sha": null,
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "pretty_env_info": "SYNTHETIC_PRIVATE_ENV_MUST_NOT_EXPORT",
+  "versions": {
+    "synthetic_qa": "synthetic-v1",
+    "synthetic_math": "synthetic-v2"
+  },
+  "n-shot": {
+    "synthetic_qa": 5,
+    "synthetic_math": 5
+  },
+  "n-samples": {
+    "synthetic_qa": {
+      "original": 100,
+      "effective": 100
+    },
+    "synthetic_math": {
+      "original": 100,
+      "effective": 100
+    }
+  },
+  "configs": {
+    "synthetic_qa": {
+      "dataset_path": "SYNTHETIC/toy_dataset",
+      "dataset_name": null,
+      "dataset_kwargs": null,
+      "custom_dataset": null,
+      "training_split": null,
+      "validation_split": null,
+      "test_split": "test",
+      "fewshot_split": "train",
+      "process_docs": null,
+      "use_prompt": null,
+      "description": null,
+      "doc_to_text": "Question: {{question}}",
+      "doc_to_target": "{{answer}}",
+      "doc_to_choice": null,
+      "fewshot_delimiter": "\n\n",
+      "target_delimiter": " ",
+      "gen_prefix": null,
+      "num_fewshot": 5,
+      "output_type": "multiple_choice",
+      "generation_kwargs": null,
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "none",
+          "filter": [
+            {
+              "function": "take_first"
+            }
+          ]
+        },
+        {
+          "name": "strict-match",
+          "filter": [
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "should_decontaminate": false,
+      "doc_to_decontamination_query": null
+    },
+    "synthetic_math": {
+      "dataset_path": "SYNTHETIC/toy_dataset",
+      "dataset_name": null,
+      "dataset_kwargs": null,
+      "custom_dataset": null,
+      "training_split": null,
+      "validation_split": null,
+      "test_split": "test",
+      "fewshot_split": "train",
+      "process_docs": null,
+      "use_prompt": null,
+      "description": null,
+      "doc_to_text": "Question: {{question}}",
+      "doc_to_target": "{{answer}}",
+      "doc_to_choice": null,
+      "fewshot_delimiter": "\n\n",
+      "target_delimiter": " ",
+      "gen_prefix": null,
+      "num_fewshot": 5,
+      "output_type": "multiple_choice",
+      "generation_kwargs": null,
+      "repeats": 1,
+      "filter_list": [
+        {
+          "name": "none",
+          "filter": [
+            {
+              "function": "take_first"
+            }
+          ]
+        },
+        {
+          "name": "strict-match",
+          "filter": [
+            {
+              "function": "take_first"
+            }
+          ]
+        }
+      ],
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "should_decontaminate": false,
+      "doc_to_decontamination_query": null
+    }
+  },
+  "higher_is_better": {
+    "synthetic_qa": {
+      "acc": true,
+      "exact_match": true
+    },
+    "synthetic_math": {
+      "acc": true,
+      "exact_match": true
+    }
+  },
+  "group_subtasks": {
+    "synthetic_suite": [
+      "synthetic_qa",
+      "synthetic_math"
+    ]
+  },
+  "results": {
+    "synthetic_qa": {
+      "alias": "合成数据 QA",
+      "sample_len": 100,
+      "acc,none": 0.55,
+      "acc_stderr,none": 0.04,
+      "acc,strict-match": 0.46,
+      "acc_stderr,strict-match": 0.05
+    },
+    "synthetic_math": {
+      "sample_len": 100,
+      "exact_match,none": 0.3,
+      "exact_match_stderr,none": "N/A"
+    }
+  },
+  "groups": {
+    "synthetic_suite": {
+      "acc,none": 0.4,
+      "acc_stderr,none": 0.03,
+      "sample_count": {
+        "acc,none": 200
+      }
+    }
+  }
+}

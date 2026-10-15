@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.dirname(fileURLToPath(import.meta.url));
+const read=p=>fs.readFileSync(path.join(root,p),'utf8');
+const demos=JSON.parse(read('fixtures/demos.json'));
+let html=read('src/template.html');
+for(const [tag,content] of [['STYLE',read('src/style.css')],['CORE',read('src/core.js')],['UI',read('src/ui.js')],['DEMOS',JSON.stringify(demos).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029')]]) html=html.replace('/*__'+tag+'__*/',()=>content);
+fs.mkdirSync(path.join(root,'dist'),{recursive:true}); fs.writeFileSync(path.join(root,'dist/index.html'),html);
+console.log('Built self-contained dist/index.html ('+Buffer.byteLength(html)+' bytes)');
